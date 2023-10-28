@@ -35,9 +35,9 @@ builder.button(text='/clear')
 async def start(message: types.Message):
     session = db.Session()
     try:
-        # new_user = models.User(tg_id=message.from_user.id, username=message.from_user.username)
-        # session.add(new_user)
-        # session.commit()
+        new_user = models.User(tg_id=message.from_user.id, username=message.from_user.username)
+        session.add(new_user)
+        session.commit()
         
         if message.from_user.id in admin_ids:
             await message.answer("Добро пожаловать, хозяин!", reply_markup=builder.as_markup())
